@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="welcomestyle.css">
+</head>
+<body>
+<header><h1>My Website</h1></header>
+<div class="card">
+      <div class="card-text">
+      <h2>Login</h2>
+      <p><form action="post">
+          <div class="email">
+          <p>Email-address&nbsp;&nbsp;
+          <input type="text"></p>
+        </div>
+         
+          <div class="pass">
+          <p>Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="password"></p>
+        </div></p>
+        <button onclick="LoginUser()">Login</button>
+      </form>
+      <hr>
+      <a href="#">Forgot Password?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="signup.html">Create a new account</a>    
+      <br>
+      Continue with google 
+    </div>
+</div>
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+   <script src="/__/firebase/8.2.9/firebase-app.js"></script>
+
+   <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+   <script src="/__/firebase/8.2.9/firebase-analytics.js"></script>
+   
+   <!-- Initialize Firebase -->
+   <script src="/__/firebase/init.js"></script>
+   
+   <script>
+       // Your web app's Firebase configuration
+       var firebaseConfig = {
+         apiKey: "AIzaSyDnViTpVW6WaaWdcl_m2D3UiaiLat75KTw",
+         authDomain: "https://partnershipforgoals.web.app/",
+         databaseURL: "https://partnershipforgoals-default-rtdb.firebaseio.com/",
+         projectId: "partnershipforgoals",
+         storageBucket: "",
+         messagingSenderId: "723713647432",
+         appId: "1:723713647432:web:e5b7c0ca6587714c0a497d"
+       };
+       // Initialize Firebase
+       firebase.initializeApp(firebaseConfig);
+   
+ 
+   function LoginUser(){
+   var email=document.getElementById('email').value;
+   var password=document.getElementById('password').value;
+   firebase.auth().signInWithEmailAndPassword(email,password).then(function(){
+   
+   
+   var id=firebase.auth().currentUser.uid;
+   window.location.replace("C:\Users\abhin\Documents\vs_code\New folder\welcome.html");
+   localStorage.setItem('id',id);
+   
+   }).catch(function(error){
+   
+   var errorCode=error.code;
+   var errorMsg=error.message;
+   
+   });
+   }
+   
+       </script>
+
+    
+</body>
+</html>
