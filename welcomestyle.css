@@ -15,17 +15,23 @@ header {
     background-color: rgb(5, 70, 50);
 }
 .card {
+   display: flex;
     display:grid;
     grid-template-rows: 10px 150px 80px;
-    grid-template-areas: "image" "text" ;
+    grid-template-areas: "text" ;
   
     border-radius: 18px;
     background: rgb(209, 82, 44);
     box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
     font-family: roboto;
     text-align: center;
+    max-width: 45%;
+    margin:150px 400px 400px 400px;
   }
   
   .card-text {
     grid-area: text;
+  }
+  hr{
+      width: 50%;
   }

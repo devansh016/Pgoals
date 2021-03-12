@@ -3,24 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Name</title>
+    <title>Home | Pgoals</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="icon_title.png" type="image/png" >
 </head>
 <body>
-     <header><h1>My Website</h1></header>  
-     
-     <nav>
-         <a href="#">Home</a>
-         <a href="#">Explore</a>
-         <a href="#">About Us</a>
-         <a href="#">Contact Us</a>
-         <a href="#">What's New</a>
-         <a href="welcome.html">Login/SignUp</a>
-     </nav>
+     <!--
+#58D68D 
+RGB 88, 214, 141-->
+     <div id="navbar">
+        <a href="index.html" id="logo"><img src="title.png" style="width: 200px;"></a>
+        <div id="navbar-right">
+        
+        <a  class="active" href="#">Home</a>
+        <a href="#" data-nav-section="all">Explore</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+        <a href="#">What's New</a>
+        <a href="welcome.html">Login/SignUp</a>
+        </div>
+        <script>window.onscroll = function() {scrollFunction()};
+
+          function scrollFunction() {
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+              document.getElementById("navbar").style.padding = "30px 10px";
+              document.getElementById("logo").style.fontSize = "25px";
+            } else {
+              document.getElementById("navbar").style.padding = "80px 10px";
+              document.getElementById("logo").style.fontSize = "35px";
+            }
+          }</script>           
+              
+     </div>
+
+    
      <main>
-         <h2>Our Fields</h2>
-         <hr>
+       <br>
+       <br><br><br><br><br><br><br><br><br><br><br><br>
+       <h2><u style="text-decoration-color: crimson;">About Us</u></h2>
+       
+       <p>
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cum qui reiciendis, quibusdam libero n
+         umquam adipisci, illo alibr 
+         as, laboriosam voluptatem voluptas saepe. Deleniti, recusandae! Voluptatibus quam repellendus quod rerum sequi.
+         Lorem ipsum dolor sit, amet con
+         sectetur adipisicing elit. Aliquid sunt eius autem velit totam, ipsam quibusdam deserunt quaerat ut necessitatibus suscipit itaque voluptatibus laudantium quas. Eius rem doloremque natus in.
+       </p>
+         <h2><u style="text-decoration-color:crimson;">Our Fields</u></h2>
+         
          <div class="all">
             <div class="card">
                 <div class="card-image-business"></div>

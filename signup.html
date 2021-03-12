@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SignUp | P</title>
      <link rel="stylesheet" href="sigstyle.css">
      <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
 </head>
@@ -99,20 +99,26 @@
 
 <!-- Initialize Firebase -->
 <script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
 <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
-      apiKey: "AIzaSyDnViTpVW6WaaWdcl_m2D3UiaiLat75KTw",
-      authDomain: "https://partnershipforgoals.web.app/",
-      databaseURL: "https://partnershipforgoals-default-rtdb.firebaseio.com/",
-      projectId: "partnershipforgoals",
-      storageBucket: "",
-      messagingSenderId: "723713647432",
-      appId: "1:723713647432:web:e5b7c0ca6587714c0a497d"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+    apiKey: "AIzaSyDnViTpVW6WaaWdcl_m2D3UiaiLat75KTw",
+    authDomain: "partnershipforgoals.firebaseapp.com",
+    databaseURL: "https://partnershipforgoals-default-rtdb.firebaseio.com",
+    projectId: "partnershipforgoals",
+    storageBucket: "partnershipforgoals.appspot.com",
+    messagingSenderId: "723713647432",
+    appId: "1:723713647432:web:e5b7c0ca6587714c0a497d",
+    measurementId: "G-1FJSNTKT7W"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
 
   function RegisterUser() {
    var email=document.getElementById('email').value;
