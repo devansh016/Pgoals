@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Pgoals</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="icon_title.png" type="image/png" >
+</head>
+<body>
+     <!--
+#58D68D 
+RGB 88, 214, 141-->
+     <div id="navbar">
+        <a href="index.html" id="logo"><img src="Logo/icon_title.png" style="width: 200px;"></a>
+        <div id="navbar-right">
+        
+        <a  class="active" href="#">Home</a>
+        <a href="#" data-nav-section="all">Explore</a>
+        <a href="#">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="#">What's New</a>
+        <a href="welcome.html">Login/SignUp</a>
+        </div>
+        <script>window.onscroll = function() {scrollFunction()};
+
+          function scrollFunction() {
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+              document.getElementById("navbar").style.padding = "30px 10px";
+              document.getElementById("logo").style.fontSize = "25px";
+            } else {
+              document.getElementById("navbar").style.padding = "80px 10px";
+              document.getElementById("logo").style.fontSize = "35px";
+            }
+          }</script>           
+              
+     </div>
+
+    
+     <main>
+       <br>
+       <br><br><br><br><br><br><br><br><br><br><br><br>
+       <h2><u style="text-decoration-color: crimson;">About Us</u></h2>
+       
+       <p>
+        PGoals is a partner or volunteer finding platform, helping people to connect with other people around the world. 
+        PGoals helps its user to start a business, do volunteer work, learn new skills and connect with like mind people. 
+        Our platform also help NGO to raise funds, raise social issue and spreading awarness for their campaign.
+       </p>
+         <h2><u style="text-decoration-color:crimson;">Our Team</u></h2>
+         
+         <div class="all">
+            <div class="card">
+                <div class="card-image-abhinandan"></div>
+                <div class="card-text">
+                  <h2>Abhinandan Thakaur</h2>
+                  <p>Student at Jaypee University of Information Technology<br> mail: demo@gmail.com</p>
+                </div>
+                </div>
+             
+              <div class="card">
+                <div class="card-image-malay"></div>
+                <div class="card-text">
+                  <h2>Malay Acharya</h2>
+                  <p>Student at Jaypee University of Information Technology<br> mail: malayacharya21@gmail.com</p>
+                </div>
+                </div>
+            
+              <div class="card">
+                <div class="card-image-devansh"></div>
+                <div class="card-text">
+                  <h2>Devansh Chaudhary</h2>
+                  <p>Student at Jaypee University of Information Technology<br> mail: devanshchaudhary2002@gmail.com</p>
+                </div>
+                </div>
+         </div>    
+        </main>
+        <hr>
+        <footer class="footer">    
+            <h2>Social Account</h2>
+            <div class="main">
+                <div class="icons">
+                    <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+                <div class="icons">
+                    <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                </div>
+                <div class="icons">
+                    <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                </div>
+                <div class="icons">
+                    <a href="#"><i class="fab fa-github fa-2x"></i></a>
+                </div>
+                
+        </footer>
+             <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.2.9/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/8.2.9/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+    
+</body>
+</html>
