@@ -175,6 +175,27 @@ section:nth-child(even) {
     border-top-right-radius: 15px;
     background-size: cover;
   }
+    .card-image-abhinandan {
+    grid-area: image;
+    background: url("Images/abhinandan.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+    .card-image-malay {
+    grid-area: image;
+    background: url("Images/malay.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+    .card-image-devansh {
+    grid-area: image;
+    background: url("Images/devansh.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
   .card-text {
     grid-area: text;
     margin: 25px;
