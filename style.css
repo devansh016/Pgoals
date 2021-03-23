@@ -119,20 +119,6 @@ section:nth-child(even) {
     border-top-right-radius: 15px;
     background-size: cover;
   }
-  .card-image-social {
-    grid-area: image;
-    background: url("Images/social.jpeg");
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-size: cover;
-  }
-  .card-image-voice{
-    grid-area: image;
-    background: url("Images/Voice.png");
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-size: cover;
-  }
   .card-image-job {
     grid-area: image;
     background: url("Images/job.png");
@@ -157,13 +143,6 @@ section:nth-child(even) {
   .card-image-donate {
     grid-area: image;
     background: url("Images/donate.jpg");
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-size: cover;
-  }
-  .card-image-initiative {
-    grid-area: image;
-    background: url("Images/initative.png");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
