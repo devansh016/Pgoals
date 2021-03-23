@@ -114,63 +114,63 @@ section:nth-child(even) {
   
   .card-image-business {
     grid-area: image;
-    background: url("Business.jpg");
+    background: url("Images/Business.jpg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
   }
   .card-image-social {
     grid-area: image;
-    background: url("social.jpeg");
+    background: url("Images/social.jpeg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
   }
   .card-image-voice{
     grid-area: image;
-    background: url("Voice.png");
+    background: url("Images/Voice.png");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
   }
   .card-image-job {
     grid-area: image;
-    background: url("job.png");
+    background: url("Images/job.png");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
   }
   .card-image-skill {
     grid-area: image;
-    background: url("skill.jfif");
+    background: url("Images/skill.jfif");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
   }
   .card-image-friend {
     grid-area: image;
-    background: url("friend.png");
+    background: url("Images/friend.png");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
   }
   .card-image-donate {
     grid-area: image;
-    background: url("donate.jpg");
+    background: url("Images/donate.jpg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
   }
   .card-image-initiative {
     grid-area: image;
-    background: url("initative.png");
+    background: url("Images/initative.png");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
   }
   .card-image-inspire {
     grid-area: image;
-    background: url("inspire.jpg");
+    background: url("Images/inspire.jpg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
