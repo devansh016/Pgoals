@@ -156,7 +156,7 @@ section:nth-child(even) {
   }
     .card-image-abhinandan {
     grid-area: image;
-    background: url("Images/abhinandan.jpg");
+    background: url("Images/abhinandan.jpeg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
