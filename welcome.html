@@ -14,15 +14,15 @@
 <div class="card">
       <div class="card-text">
       <h2>Login</h2>
-      <p><form action="post">
+      <p><form action="post"></form>
           <div class="email">
           <p>Email-address&nbsp;&nbsp;
-          <input type="text"></p>
+          <input type="email" id="email"></p>
         </div>
          
           <div class="pass">
           <p>Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="password"></p>
+          <input type="password" id="password"></p>
         </div></p>
         <button onclick="LoginUser()">Login</button>
       </form>
@@ -33,58 +33,73 @@
      
     </div>
 </div>
-   <!-- The core Firebase JS SDK is always required and must be listed first -->
-   <script src="/__/firebase/8.2.9/firebase-app.js"></script>
-
-   <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
-   <script src="/__/firebase/8.2.9/firebase-analytics.js"></script>
+   
    
    <!-- Initialize Firebase -->
    <script src="/__/firebase/init.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script> 
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 
-   <script>
-       // Your web app's Firebase configuration
-       var firebaseConfig = {
-    apiKey: "AIzaSyDnViTpVW6WaaWdcl_m2D3UiaiLat75KTw",
-    authDomain: "partnershipforgoals.firebaseapp.com",
-    databaseURL: "https://partnershipforgoals-default-rtdb.firebaseio.com",
-    projectId: "partnershipforgoals",
-    storageBucket: "partnershipforgoals.appspot.com",
-    messagingSenderId: "723713647432",
-    appId: "1:723713647432:web:e5b7c0ca6587714c0a497d",
-    measurementId: "G-1FJSNTKT7W"
-  };
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+  apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
+  authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+  projectId: "partnershipforgoals-1426a",
+  storageBucket: "partnershipforgoals-1426a.appspot.com",
+  messagingSenderId: "512104690436",
+  appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
+};
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-   
- 
-   function LoginUser(){
-   var email=document.getElementById('email').value;
-   var password=document.getElementById('password').value;
-   firebase.auth().signInWithEmailAndPassword(email,password).then(function(){
-   
-   
-   var id=firebase.auth().currentUser.uid;
-   window.location.replace("index.html");
-   localStorage.setItem('id',id);
-   
-   }).catch(function(error){
-   
-   var errorCode=error.code;
-   var errorMsg=error.message;
-   
-   });
-   }
-   
-       </script>
 
+  const auth = firebase.auth();
+
+  function LoginUser(){
+   var email=document.getElementById("email");
+   var password=document.getElementById("password");
+   const promise = auth.signInWithEmailAndPassword(email.value, password.value);
+
+		promise.catch(e => alert(e.message));
+		
+		
+   
     
+  }
+
+  auth.onAuthStateChanged(function(user)
+  {
+		
+		if(user){
+			
+			var email = user.email;
+      var password=user.password ;
+      
+			alert("Active User " + email);
+			
+			window.location.replace("C:/Users/abhin/Documents/vs_code/New folder/index69.html");
+
+			//is signed in
+			
+		}
+    else{
+			
+			alert("No Active User");
+			//no user is signed in
+		}
+		
+		
+		
+	});
+
+</script>    
 </body>
 </html>

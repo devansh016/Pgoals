@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    
+    <title>SignUp | Pgoals</title>
      <link rel="stylesheet" href="sigstyle.css">
      <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header><h1>My Website</h1></header>  
+    <header><h1>Pgoals</h1></header>  
     <main>
         <form action="">
             <ul class="form">
@@ -18,10 +16,10 @@
                <hr>
                
                <br>
-               <li><p>First Name&emsp;&emsp;<input type="text" id="fname"  name="fname" placeholder="First Name Here" required></p></li>
-               <li><p>Last Name&emsp;&emsp;<input type="text" id="lname"  name="lname"  placeholder="Last Name Here" required>></p></li> 
-               <li><p>Email&emsp;&emsp;&emsp;&emsp;<input type="email" id="email" name="email" placeholder="Email Addres Here" required>></p></li>
-               <li><p>Phone Number<input type="text" id="pnum" name="pnum" placeholder="Phone Number" required>></p></li>
+               <li><p>First Name&emsp;&emsp;<input type="text" id="fname"  name="fname" placeholder="First Name Here" ></p></li>
+               <li><p>Last Name&emsp;&emsp;<input type="text" id="lname"  name="lname"  placeholder="Last Name Here" ></p></li> 
+               <li><p>Email&emsp;&emsp;&emsp;&emsp;<input type="email" id="email" name="email" placeholder="Email Addres Here"></p></li>
+               <li><p>Phone Number<input type="text" id="pnum" name="pnum" placeholder="Phone Number" ></p></li>
                                  Gender 
                       <br>
                       
@@ -29,17 +27,16 @@
                         <label for="male">Male</label><br>
                         <input type="radio" id="female" name="gender" value="female">
                         <label for="female">Female</label><br>
-                        <input type="radio" id="other" name="gender" value="other">
-                        <label for="other">Prefer not to Say</label></div>
+                        </div>
                         <br>
                                      
               </li>
-              <li><p>Password&emsp;&emsp;&emsp;<input type="password" name="password" id="password" placeholder="Password" required>>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;Confirm Password&emsp;&emsp;&emsp;<input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" required>> </p></li>
+              <li><p>Password&emsp;&emsp;&emsp;<input type="password" name="password" id="password" placeholder="Password" >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;Confirm Password&emsp;&emsp;&emsp;<input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" > </p></li>
               <li>
                   <p>
                       You are here for: 
-                    <div class="dob">  Date of Birth <input type="date" name="dob" id="dob" required>>   </div>  
+                    <div class="dob">  Date of Birth <input type="date" name="dob" id="dob" >   </div>  
                     <br>                                 
                       <div class="check">
                         <input type="checkbox" id="business" name="business" value="Business">
@@ -53,7 +50,7 @@
                         <label for="job"> Find a job</label><br>
                         <input type="checkbox" id="skill" name="skill" value="Skill">
                         <label for="skill">Learn a skill</label><br>
-                        <input type="checkbox" id="friend" name="friend" value="friend"
+                        <input type="checkbox" id="friend" name="friend" value="friend">
                         <label for="friend">Find Friends</label>
                          <br>
                         <input type="checkbox" id="donate" name="donate" value="donate">
@@ -65,11 +62,11 @@
                         <label for="inspire">Inspire</label>
                       </div>
                      <br>
-                     <div class="term"><p><input type="checkbox" name="term" id="term" required>>&nbsp;You agree with our term and condition Lorem ipsum dolor sit amet consectetur adipisicing elit. D
+                     <div class="term"><p><input type="checkbox" name="term" id="term" required>&nbsp;&nbsp;You agree with our term and condition Lorem ipsum dolor sit amet consectetur adipisicing elit. D
                         ucimus cum soluta quas placeat suscipit voluptas minima co sequuntur unde autem laboriosam nemo possimus quos quidem, similique repellendus,
                          corporis perferendis eligendi expedita?</p></div>
                      <br>
-                      <div class="submit"> <button onclick="RegisterUser()">Register New User</button></div>
+                      <div class="submit"> <button onclick="RegisterUser()" id="submit">Registration New User</button></div>
                              </p>
               </li>
             </ul>
@@ -91,36 +88,65 @@
             <div class="icons">
                 <a href="#"><i class="fab fa-github fa-2x"></i></a>
             </div>
-    </footer>  
-</body>
+    </footer>
+   
 
-<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase.js"></script>
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries 
+    
+       document.getElementById('submit').oneClick = fuction(){
+        RegisterUser();
+        firebase.database().ref('Users/'+id).set({
+     FirstName:fname,
+     LastName:lname,
+     Phonenumber:pnum,
+     Gender:gender,
+     DOB:dob,  
+    });
+    }
+    function RegisterUser() {
+   var email=document.getElementById('email').value;
+   var password=document.getElementById('password').value;
+   
+ 
+  }
+  -->  
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 <script>
-  // Your web app's Firebase configuration
+    // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
-    authDomain: "partnershipforgoals-1426a.firebaseapp.com",
-    projectId: "partnershipforgoals-1426a",
-    storageBucket: "partnershipforgoals-1426a.appspot.com",
-    messagingSenderId: "512104690436",
-    appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
-  };
+  apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
+  authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+  projectId: "partnershipforgoals-1426a",
+  storageBucket: "partnershipforgoals-1426a.appspot.com",
+  messagingSenderId: "512104690436",
+  appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
+};
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth = firebase.auth();
 
   function RegisterUser()
   {
-      var email = document.getElementById('email').value;
-      var password = document.getElementById('password').value;
-      firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
-          alert('User Registered Successfully');
-      }).catch(function(error){
-        var errorcode=error.code;
-        var errormsd=error.message;
-      })
-  }
+      var email = document.getElementById("email");
+      var password = document.getElementById("password");
+       const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
+		promise.catch(e => alert(e.message));
+		
+		alert("Signed Up");
+ }
+  
 
-</script>
-
+    </script>
+    
+</body>
 </html>
