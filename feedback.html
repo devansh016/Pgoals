@@ -1,66 +1,57 @@
-<main>
-
-    </main>
-
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="sigstyle.css">
-    <link rel="stylesheet" href="contact_style.css">
-    <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="icon_title.png" type="image/png" >
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+<link rel="stylesheet" href="feedback.css">
+
+<script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
+<link rel="icon" href="icon_title.png" type="image/png" >
 </head>
 <body>
-     <div id="navbar">
-        <a href="index.html" id="logo"><img src="Logo/icon_title.png" style="width: 200px;"></a>
-        <div id="navbar-right">
-        
-        <a  class="active" href="index.html">Home</a>
-        <a href="#" data-nav-section="all">Explore</a>
-        <a href="feedback.html">FeedBack</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="#">What's New</a>
-        <a href="welcome.html">Login/SignUp</a>
-        </div>           
-     </div>
+    <header><h1>My Website</h1></header>
 
-    <br><br><br><br><br><br><br><br>
-    <main>
-        <h1>Feedback Form </h1>
-        <form action="">
-          <ul class="form">
-              <hr>
-              <br>
-              <li><p>Name&emsp;&emsp;<input type="text" id="fname"  name="fname" placeholder="Name Here" required></p></li>
-              <li><p>Email&emsp;&emsp;<input type="email" id="email" name="email" placeholder="Email Addres Here" required></p></li>
-              <li><p>Message     <textarea type="text" row="50" id="pnum" name="pnum" placeholder="Type your message here" required ></p></li>
-              <br>
-              <div class="submit"> <button onclick="SendMessage()">Send Message</button></div>
-          </ul>
+<br><br><br><br><br>
+<main>
+   
+    <div class="card">
+        <div class="card-text">
+        <h2>Feedback Form </h2>
+        <p><form action="post"></form>
+            <div class="email">
+            <p>Email-address&nbsp;&nbsp;
+            <input type="email" id="email"></p>
+          </div>
+           
+            <div class="pass">
+                <ul>
+                <p> <li> Message</li> <li> <textarea type="text" id="feed" placeholder="Type your message here" cols="23" rows="7" required style="border-radius: 15px;"></textarea></li></p>
+                </ul>
+            </div></p>
+          <button onclick="Feedback()">Feedback</button>
         </form>
-    </main>
+        
+      </div>
+  </div>
+</main>
 
-        <hr>
-        <footer class="footer">    
-            <h2>Social Account</h2>
-            <div class="main">
-                <div class="icons">
-                    <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                </div>
-                <div class="icons">
-                    <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-                </div>
-                <div class="icons">
-                    <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
-                </div>
-                <div class="icons">
-                    <a href="#"><i class="fab fa-github fa-2x"></i></a>
-                </div>
-                
-        </footer>   
+    <footer class="footer">    
+       
+        <div class="main">
+            <div class="icons">
+                <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+            <div class="icons">
+                <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+            </div>
+            <div class="icons">
+                <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+            </div>
+            <div class="icons">
+                <a href="#"><i class="fab fa-github fa-2x"></i></a>
+            </div>
+            
+    </footer>   
 </body>
 </html>
