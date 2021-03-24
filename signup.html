@@ -10,7 +10,9 @@
 <body>
     <header><h1>Pgoals</h1></header>  
     <main>
-        <form action="">
+      <div class="card">
+        <div class="card-text">
+         
             <ul class="form">
                <li><h2>SignUp</h2></li>
                <hr>
@@ -31,20 +33,17 @@
                         <br>
                                      
               </li>
-              <li><p>Password&emsp;&emsp;&emsp;<input type="password" name="password" id="password" placeholder="Password" >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                &emsp; &emsp;&emsp;&emsp;&emsp;&emsp; </p></li>
+              <li><p>Password&emsp;&emsp;&emsp;<input type="password" name="password" id="password" placeholder="Password" >
+                </p>
               <li>
                   <p>
-                      You are here for:   
+                      You are here for: 
+                    
                     <br>                                 
                       <div class="check">
                         <input type="checkbox" id="business" name="business" value="Business">
                         <label for="business"> Start a business</label><br>
-                        <input type="checkbox" id="scause" name="scause" value="Social cause">
-                        <label for="scause"> For a Social Cause</label><br>
-                        <input type="checkbox" id="sissue" name="sissue" value="social issue">
-                        <label for="sissue"> Raise a Social Issue</label>
-                        <br>
+                     
                         <input type="checkbox" id="job " name="job" value="job">
                         <label for="job"> Find a job</label><br>
                         <input type="checkbox" id="skill" name="skill" value="Skill">
@@ -55,8 +54,7 @@
                         <input type="checkbox" id="donate" name="donate" value="donate">
                         <label for="doante">Donate 
                         </label><br>
-                        <input type="checkbox" id="initiative" name="initiative" value="initiative">
-                        <label for="initiative">Initiative</label><br>
+                        
                         <input type="checkbox" id="inspire" name="inspire" value="inspire">
                         <label for="inspire">Inspire</label>
                       </div>
@@ -65,12 +63,18 @@
                         ucimus cum soluta quas placeat suscipit voluptas minima co sequuntur unde autem laboriosam nemo possimus quos quidem, similique repellendus,
                          corporis perferendis eligendi expedita?</p></div>
                      <br>
-                      <div class="submit"> <button onclick="RegisterUser()" id="submit">Registration New User</button></div>
+                     <hr>
+                     <br>
+                      <div class="submit"> <button onclick="RegisterUser()" id="submit" style="width: 200px; height: 50px; font-size: 16px;border-radius: 15px;">Registration New User</button></div>
                              </p>
               </li>
             </ul>
-        </form>
-        <hr>
+        
+        
+      </div>
+  </div>
+        
+       
     </main>
     <footer>
         <h2>Social Account</h2>
@@ -117,7 +121,30 @@
    
  
   }
+
+   const auth = firebase.auth();
+
+  function RegisterUser()
+  {
+      var email = document.getElementById("email");
+      var password = document.getElementById("password");
+       const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
+		promise.catch(e => alert(e.message));
+		
+		alert("Signed Up");
+ }
   -->  
+  <!--
+     function RegisterUser()
+  {
+    var fname = document.getElementById("fname");
+    var lname = document.getElementById("lname");
+      var email = document.getElementById("email");
+      var password = document.getElementById("password");
+       const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
+	
+  }
+  -->
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 <script>
     // Your web app's Firebase configuration
@@ -139,11 +166,11 @@
       var email = document.getElementById("email");
       var password = document.getElementById("password");
        const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
-		promise.catch(e => alert(e.message));
+	    	promise.catch(e => alert(e.message));
 		
 		alert("Signed Up");
  }
-  
+ 
 
     </script>
     
