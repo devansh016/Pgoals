@@ -133,23 +133,9 @@ section:nth-child(even) {
     border-top-right-radius: 15px;
     background-size: cover;
   }
-  .card-image-friend {
-    grid-area: image;
-    background: url("Images/friend.png");
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-size: cover;
-  }
   .card-image-donate {
     grid-area: image;
     background: url("Images/donate.jpg");
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-size: cover;
-  }
-  .card-image-inspire {
-    grid-area: image;
-    background: url("Images/inspire.jpg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
