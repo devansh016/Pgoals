@@ -6,12 +6,110 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LANDING | Pgoals</title>
+    <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="account.css">
 </head>
 <body>
 <header><h1>Pgoals</h1></header>
 <main>
-         
+
+    
+      
 </main> 
+  
+<div class="card">
+    <div class="card-text">
+    <h2>Account</h2>
+    <p>
+        <p>
+            Name:  <strong id="name"></strong>
+        </p>  
+        <p>
+          Registered Email:  <strong id="email"></strong>
+      </p> 
+      <p>
+          Phone Number:  <strong id="phone"></strong>
+      </p>  
+      <p>
+          Interested in :  <strong id="field"></strong>
+      </p> 
+      <button onclick="logout()">Logout</button>    
+    
+        </p>    
+  </div>
+</div>
+</main>
+
+<footer class="footer">    
+   
+    <div class="main">
+        <div class="icons">
+            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+        </div>
+        <div class="icons">
+            <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+        </div>
+        <div class="icons">
+            <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+        </div>
+        <div class="icons">
+            <a href="#"><i class="fab fa-github fa-2x"></i></a>
+        </div>
+        
+</footer> 
+
+<script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+  var firebaseConfig = {
+  apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
+  authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+  databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
+  projectId: "partnershipforgoals-1426a",
+  storageBucket: "partnershipforgoals-1426a.appspot.com",
+  messagingSenderId: "512104690436",
+  appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth = firebase.auth();
+          function logout()
+          {
+        
+                firebase.auth().signOut();
+                window.location.replace("C:/Users/abhin/Documents/vs_code/New folder/index.html");
+          }
+</script>
+<script type = "text/javascript">
+    const db = firebase.firestore();
+    console.log(localStorage);
+    var email = localStorage.getItem("email");
+    console.log(email);
+    var docRef = db.collection("users").doc(email);
+    docRef.get().then((doc) => {
+    if (doc.exists) {
+        const name = doc.get("first");
+        const lname = doc.get("last");
+        const phone = doc.get("phone");
+        document.getElementById("name").innerHTML = " " + name + " " + lname;
+        document.getElementById("email").innerHTML = " " + email;
+        document.getElementById("phone").innerHTML = " " + phone;
+
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    console.log(saved);
+</script>
+
 </body>
 </html>
