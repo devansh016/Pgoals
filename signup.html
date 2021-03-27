@@ -8,17 +8,17 @@
      <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div id="navbar">
-    <a href="index.html" id="logo"><img src="Logo/icon_title.png" style="width: 200px;"></a>
-    <div id="navbar-right">
-    
-    <a  class="active" href="index.html">Home</a>
-    <a href="feedback.html">Feedback</a>
-    <a href="contact.html">Contact Us</a>
-    <a href="welcome.html">Login/SignUp</a>
-    </div>                  
- </div>
- <br> <br>  <br>  <br>  <br>  <br>
+    <div id="navbar">
+      <a href="index.html" id="logo"><img src="Logo/icon_title.png" style="width: 200px;"></a>
+      <div id="navbar-right">
+      
+      <a  class="active" href="index.html">Home</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="welcome.html">Login/SignUp</a>
+      </div>                  
+   </div>
+   <br> <br>  <br>  <br>  <br>  <br>  
     <main>
       <div class="card">
         <div class="card-text">
@@ -54,7 +54,7 @@
                         <input type="checkbox" id="business" name="business" value="Business">
                         <label for="business"> Start a business</label><br>
                      
-                        <input type="checkbox" id="job " name="job" value="job">
+                        <input type="checkbox" id="job" name="job" value="job">
                         <label for="job"> Find a job</label><br>
                         <input type="checkbox" id="skill" name="skill" value="Skill">
                         <label for="skill">Learn a skill</label><br>
@@ -105,8 +105,7 @@
 <!-- Initialize Firebase -->
 <script src="/__/firebase/init.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-
-
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
 
 
@@ -159,6 +158,7 @@
   var firebaseConfig = {
   apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
   authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+  databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
   projectId: "partnershipforgoals-1426a",
   storageBucket: "partnershipforgoals-1426a.appspot.com",
   messagingSenderId: "512104690436",
@@ -168,15 +168,125 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
   const auth = firebase.auth();
-
+  const db = firebase.firestore();
+  const f = document.getElementById('fname');
+  const l = document.getElementById('lname');
+  const p = document.getElementById('pnum');
+  var male = document.getElementById('male');
+  var business = document.getElementById('business');
+  var job = document.getElementById('job');
+  var skill = document.getElementById('skill');
+  var friend = document.getElementById('friend');
+  var donate = document.getElementById('donate');
+  var inspire = document.getElementById('inspire');
+  var term = document.getElementById('term');
   function RegisterUser()
   {
+    if(term.checked == false)
+    {
+      alert('AGREE TO OUR TERMS TO CONTINUE');
+      return;
+    }
       var email = document.getElementById("email");
       var password = document.getElementById("password");
-       const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
-	    	promise.catch(e => alert(e.message));
-		
-		alert("Signed Up");
+      
+    const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
+	  promise.catch(e => alert(e.message));
+    alert("Signed Up");
+    db.collection('users').doc(email.value).set({
+      first: f.value,
+      last: l.value,
+      phone: p.value
+    });
+    if(male.checked == true)
+    {
+      db.collection('users').doc(email.value).update({
+      gender: "male"
+    });
+    }
+    else
+    {
+      db.collection('users').doc(email.value).update({
+      gender: "female"
+    });
+    }
+
+    if(business.checked == true)
+    {
+      db.collection('users').doc(email.value).update({
+      SAB: "true"
+    });
+    }
+    else
+    {
+      db.collection('users').doc(email.value).update({
+      SAB: "false"
+    });
+    }
+
+    if(job.checked == true)
+    {
+      db.collection('users').doc(email.value).update({
+      JOB: "true"
+    });
+    }
+    else
+    {
+      db.collection('users').doc(email.value).update({
+      JOB: "false"
+    });
+    }
+
+
+    if(skill.checked == true)
+    {
+      db.collection('users').doc(email.value).update({
+      SKILL: "true"
+    });
+    }
+    else
+    {
+      db.collection('users').doc(email.value).update({
+      SKILL: "false"
+    });
+    }
+    if(friend.checked == true)
+    {
+      db.collection('users').doc(email.value).update({
+      FRIEND: "true"
+    });
+    }
+    else
+    {
+      db.collection('users').doc(email.value).update({
+      FRIEND: "false"
+    });
+    }
+    if(donate.checked == true)
+    {
+      db.collection('users').doc(email.value).update({
+      DONATE: "true"
+    });
+    }
+    else
+    {
+      db.collection('users').doc(email.value).update({
+      DONATE: "false"
+    });
+    }
+    if(inspire.checked == true)
+    {
+      db.collection('users').doc(email.value).update({
+      INSPIRE: "true"
+    });
+    }
+    else
+    {
+      db.collection('users').doc(email.value).update({
+      INSPIRE: "false"
+    });
+    }
+    
  }
  
 
