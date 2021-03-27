@@ -50,38 +50,48 @@ RGB 88, 214, 141-->
         <h2><u style="text-decoration-color:crimson;">Our Fields</u></h2>
         
         <div class="all">
-           <div class="card">
-               <div class="card-image-business"></div>
-               <div class="card-text">
-                 <a href="business.html"><h2>Start a Business</h2></a>
-                 <p>Start your business idea today and get partners for your business.</p>
-               </div>
-               </div>
+           
+          <div class="sab", id ="sab"><div class="card">
+            <div class="card-image-business"></div>
+            <div class="card-text">
+              <a href="business.html"><h2>Start a Business</h2></a>
+              <p>Start your business idea today and get partners for your business.</p>
+            </div>
+            </div>
+          </div>
             
-               <div class="card">
-                 <div class="card-image-donate"></div>
-                 <div class="card-text">
-                   <a href="donate.html"><h2>Donate</h2></a>
-                   <p>Help the world by promising to donate a small amount every month.</p>
-                 </div>
-                 </div>
-             <div class="card">
-               <div class="card-image-skill"></div>
-               <div class="card-text">
-                 <a href="skill.html"><h2>Learn a skill</h2></a>
-                 <p>Learn a new skill from experts in their virtual master class for free. Be ready for the technology advancement.</p>
-               </div>
-               </div>
+            <div class="don", id="don">
+              <div class="card">
+                <div class="card-image-donate"></div>
+                <div class="card-text">
+                  <a href="donate.html"><h2>Donate</h2></a>
+                  <p>Help the world by promising to donate a small amount every month.</p>
+                </div>
+                </div>
+            </div>  
+
+             <div class="skill", id="skill">
+              <div class="card">
+                <div class="card-image-skill"></div>
+                <div class="card-text">
+                  <a href="skill.html"><h2>Learn a skill</h2></a>
+                  <p>Learn a new skill from experts in their virtual master class for free. Be ready for the technology advancement.</p>
+                </div>
+                </div>
+             </div>
                
         </div>    
         <div class="bll">
-           <div class="card">
-               <div class="card-image-job"></div>
-               <div class="card-text">
-                 <a href="job.html"><h2>Find a Job</h2></a>
-                 <p>Looking for a job? Apply for hundreds of jobs on our portal by simply uploading your resume and providing some details.</p>
-               </div>
-               </div>
+
+          <div class="job", id="job">
+            <div class="card">
+              <div class="card-image-job"></div>
+              <div class="card-text">
+                <a href="job.html"><h2>Find a Job</h2></a>
+                <p>Looking for a job? Apply for hundreds of jobs on our portal by simply uploading your resume and providing some details.</p>
+              </div>
+              </div>
+          </div>
         </div>        
        </main>
         <hr>
@@ -128,14 +138,38 @@ RGB 88, 214, 141-->
         </script>
         <script type = "text/javascript">
             const db = firebase.firestore();
-            console.log(localStorage);
             var email = localStorage.getItem("email");
-            console.log(email);
             var docRef = db.collection("users").doc(email);
             docRef.get().then((doc) => {
             if (doc.exists) {
                 const name = doc.get("first");
                 document.getElementById("nnn").innerHTML = " " + name;
+
+                const sab = doc.get("SAB");
+                const skill = doc.get("SKILL");
+                const don = doc.get("DONATE");
+                const job = doc.get("JOB");
+                console.log(sab);
+                console.log(skill);
+                console.log(don);
+                console.log(job);
+                if(sab === "false")
+                {
+                  document.getElementById("sab").style.display = "none";
+                }
+                if(skill === "false")
+                {
+                  document.getElementById("skill").style.display = "none";
+                }
+                if(don === "false")
+                {
+                  document.getElementById("don").style.display = "none";
+                }
+                if(job === "false")
+                {
+                  document.getElementById("job").style.display = "none";
+                }
+                
         
             } else {
                 // doc.data() will be undefined in this case
