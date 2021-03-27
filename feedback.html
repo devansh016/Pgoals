@@ -24,7 +24,7 @@ RGB 88, 214, 141-->
     </div>             
  </div>
  <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-<main>
+ <main>
    
     <div class="card">
         <div class="card-text">
@@ -64,5 +64,43 @@ RGB 88, 214, 141-->
             </div>
             
     </footer>   
+
+    <script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+  var firebaseConfig = {
+  apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
+  authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+  databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
+  projectId: "partnershipforgoals-1426a",
+  storageBucket: "partnershipforgoals-1426a.appspot.com",
+  messagingSenderId: "512104690436",
+  appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const email = document.getElementById('email');
+  const feed = document.getElementById('feed');
+ 
+  function Feedback()
+  {
+        
+    db.collection('feedback').doc(email.value).set({
+      Feedback: feed.value,
+    });
+   
+
+    }
+</script>
 </body>
 </html>
