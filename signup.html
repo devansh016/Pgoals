@@ -15,7 +15,7 @@
       <a  class="active" href="index.html">Home</a>
       <a href="feedback.html">Feedback</a>
       <a href="contact.html">Contact Us</a>
-      <a href="welcome.html">Login/SignUp</a>
+      
       </div>                  
    </div>
    <br> <br>  <br>  <br>  <br>  <br>  
@@ -58,16 +58,11 @@
                         <label for="job"> Find a job</label><br>
                         <input type="checkbox" id="skill" name="skill" value="Skill">
                         <label for="skill">Learn a skill</label><br>
-                        <input type="checkbox" id="friend" name="friend" value="friend">
-                        <label for="friend">Find Friends</label>
-                         <br>
+                       
                         <input type="checkbox" id="donate" name="donate" value="donate">
                         <label for="doante">Donate 
                         </label><br>
-                        
-                        <input type="checkbox" id="inspire" name="inspire" value="inspire">
-                        <label for="inspire">Inspire</label>
-                      </div>
+                                              </div>
                      <br>
                      <div class="term"><p><input type="checkbox" name="term" id="term" required>&nbsp;&nbsp;You agree with our Term & Conditions and Privacy Policy.</p></div>
                      <br>
@@ -109,49 +104,8 @@
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
 
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries 
-    
-       document.getElementById('submit').oneClick = fuction(){
-        RegisterUser();
-        firebase.database().ref('Users/'+id).set({
-     FirstName:fname,
-     LastName:lname,
-     Phonenumber:pnum,
-     Gender:gender,
-     DOB:dob,  
-    });
-    }
-    function RegisterUser() {
-   var email=document.getElementById('email').value;
-   var password=document.getElementById('password').value;
-   
- 
-  }
 
-   const auth = firebase.auth();
 
-  function RegisterUser()
-  {
-      var email = document.getElementById("email");
-      var password = document.getElementById("password");
-       const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
-		promise.catch(e => alert(e.message));
-		
-		alert("Signed Up");
- }
-  -->  
-  <!--
-     function RegisterUser()
-  {
-    var fname = document.getElementById("fname");
-    var lname = document.getElementById("lname");
-      var email = document.getElementById("email");
-      var password = document.getElementById("password");
-       const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
-	
-  }
-  -->
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 <script>
     // Your web app's Firebase configuration
@@ -250,18 +204,7 @@
       SKILL: "false"
     });
     }
-    if(friend.checked == true)
-    {
-      db.collection('users').doc(email.value).update({
-      FRIEND: "true"
-    });
-    }
-    else
-    {
-      db.collection('users').doc(email.value).update({
-      FRIEND: "false"
-    });
-    }
+    
     if(donate.checked == true)
     {
       db.collection('users').doc(email.value).update({
@@ -274,18 +217,7 @@
       DONATE: "false"
     });
     }
-    if(inspire.checked == true)
-    {
-      db.collection('users').doc(email.value).update({
-      INSPIRE: "true"
-    });
-    }
-    else
-    {
-      db.collection('users').doc(email.value).update({
-      INSPIRE: "false"
-    });
-    }
+    
     
  }
  
