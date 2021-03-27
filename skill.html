@@ -26,12 +26,13 @@
                <hr>
                <br>
                <li><p>Name&emsp;&emsp;<input type="text" id="name"  name="name" placeholder="Enter your name here" ></p></li>
-               <li><p>Age&emsp;&emsp;&emsp;<input type="text" id="age"  name="age"  placeholder="Enter your age here" ></p></li> 
-               <li><p>Email&emsp;&emsp;<input type="email" id="email" name="email" placeholder="Enter your email address Here"></p></li>
-               <li><p>Skill&emsp;&emsp;<input type="text" id="skill" name="skill" placeholder="Enter skill you want to learn here"></p></li>   
+               <li><p>Email&emsp;&emsp;<input type="email" id="email"  name="email"  placeholder="Enter your email address here" ></p></li>
+               <li><p>Skill&emsp;&emsp;&emsp;<input type="text" id="skill" name="skill" placeholder="Enter skill you want to learn here"></p></li>   
+               <li><p>Experience<input type="text" id="exp" name="exp" placeholder="Enter your experinece here"></p></li>
+               <li><p>Charges&emsp;<input type="text" id="charges" name="charges" placeholder="Enter charges per hour here"></p></li>
                   <div class="term"><p><input type="checkbox" name="term" id="term" required>&nbsp;You agree with our term and condition.</p></div>
                      <br>
-                      <div class="submit"> <button onclick="Register()" id="submit">Registration New User</button></div>
+                      <div class="submit"> <button onclick="Register()" id="submit">Submit</button></div>
                              </p>
               </li>
             </ul>
@@ -54,49 +55,50 @@
                 <a href="#"><i class="fab fa-github fa-2x"></i></a>
             </div>
     </footer>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="/__/firebase/init.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-    
-    
-    
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
-    <script>
-        // Your web app's Firebase configuration
-      var firebaseConfig = {
-      apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
-      authDomain: "partnershipforgoals-1426a.firebaseapp.com",
-      databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
-      projectId: "partnershipforgoals-1426a",
-      storageBucket: "partnershipforgoals-1426a.appspot.com",
-      messagingSenderId: "512104690436",
-      appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
-    };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-      const auth = firebase.auth();
-      const db = firebase.firestore();
-      const name = document.getElementById('name');
-      const age = document.getElementById('age');
-      const email = document.getElementById('email');
-      const skill = document.getElementById('skill');
-     
-      function Register()
-      {
-            
-        db.collection('skill').doc(email.value).set({
-            
-            age: age.value,
-            name: name.value,
-            skill: skill.value,
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
 
-        });
-  
-        }
-    </script>
-    
+
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+  var firebaseConfig = {
+  apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
+  authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+  databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
+  projectId: "partnershipforgoals-1426a",
+  storageBucket: "partnershipforgoals-1426a.appspot.com",
+  messagingSenderId: "512104690436",
+  appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const name = document.getElementById('name');
+  const email = document.getElementById('email');
+  const skill = document.getElementById('skill');
+  const exp = document.getElementById('exp');
+  const charges = document.getElementById('charges');
+ 
+  function Register()
+  {
+        
+    db.collection('skill').doc(email.value).set({
+
+      Name: name.value,
+      Skill: skill.value,
+      Experience: exp.value,
+      Charges: charges.value,
+
+    });
+   
+
+    }
+</script>
 </body>
 </html>
