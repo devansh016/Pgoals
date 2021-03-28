@@ -93,5 +93,6 @@ header {
   }
   #navbar-right {
     float: none;
+  display: flex;
   }
 }

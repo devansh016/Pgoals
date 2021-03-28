@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills | Pgoals</title>
+    <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="landing.css">
     <link rel="stylesheet" href="feedback.css">
 </head>
@@ -13,13 +14,23 @@
     <div id="navbar">
         <a href="index.html" id="logo"><img src="Logo/icon_title.png" style="width: 200px;"></a>
         <div id="navbar-right">
-        
-        <a  class="active" href="index.html">Home</a>
-        <a href="feedback.html">Feedback</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="account.html"><i class="fas fa-user-alt fa-.5x"></i><strong id="nnn"></strong></a>
+        <div>
+          <a  class="active" href="index.html">Home</a>
         </div>
-      </div>
+        <div>
+          <a href="feedback.html">Feedback</a>
+        </div>
+        <div>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div id="login">
+          <a href="login.html">Login</a>
+        </div>
+        <div id="ico">
+          <a href="account.html"><i class="fas fa-user-alt fa-.5x"></i><strong id="nnn"></strong></a>
+        </div>
+        </div>
+    </div>
      <br> <br> <br> 
 <main>
     
@@ -47,5 +58,49 @@
          </li>
     </ul>       
 </main> 
+<script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+  var firebaseConfig = {
+  apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
+  authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+  databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
+  projectId: "partnershipforgoals-1426a",
+  storageBucket: "partnershipforgoals-1426a.appspot.com",
+  messagingSenderId: "512104690436",
+  appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  var email = localStorage.getItem("email");
+            var docRef = db.collection("users").doc(email);
+            docRef.get().then((doc) => {
+            if (doc.exists) {
+              const name = doc.get("first");
+              document.getElementById("nnn").innerHTML = " " + name;
+              document.getElementById("login").style.display = "none";
+              document.getElementById("ico").style.display = "block";
+
+            
+        
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+            console.log(saved);
+  </script>
 </body>
 </html>
