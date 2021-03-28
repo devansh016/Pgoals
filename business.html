@@ -36,11 +36,11 @@
                <hr>
                <br>
                <li><p>Company Name&emsp;&emsp;<input type="text" id="cname"  name="cname" placeholder="Enter your name here" ></p></li>
-               <li><p>Owner Name&emsp;&emsp;<input type="text" id="oname"  name="oname" placeholder="Enter your name here" ></p></li>
-               <li><p>Email&emsp;&emsp;<input type="email" id="cemail"  name="cemail"  placeholder="Enter your email address here" ></p></li>
-               <li><p>Company Field&emsp;&emsp;&emsp;<input type="text" id="cfield" name="cfield" placeholder="Enter skill you want to learn here"></p></li>   
+               <li><p>Owner Name&emsp;&emsp;&emsp;<input type="text" id="oname"  name="oname" placeholder="Enter your name here" ></p></li>
+               <li><p>Company Email&emsp;&emsp;<input type="email" id="email"  name="email"  placeholder="Enter your email address here" ></p></li>
+               <li><p>Company Field&emsp;&emsp;<input type="text" id="cfield" name="cfield" placeholder="Enter skill you want to learn here"></p></li>   
                <li><p>Investment Required<input type="text" id="investment" name="investment" placeholder="Enter your experinece here"></p></li>
-               <li><p>Company Plans&emsp;<input type="text" id="plan" name="plan" placeholder="Enter charges per hour here"></p></li>
+               <li><p>Company Plans&emsp;&emsp;<input type="text" id="plan" name="plan" placeholder="Enter charges per hour here"></p></li>
                      <br>
                       <div class="submit"> <button onclick="Register()" id="submit">Submit</button></div>
                              </p>
@@ -65,7 +65,7 @@
                 <a href="#"><i class="fab fa-github fa-2x"></i></a>
             </div>
     </footer>
-    <script src="/__/firebase/init.js"></script>
+<script src="/__/firebase/init.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
@@ -90,7 +90,7 @@
   const auth = firebase.auth();
   const db = firebase.firestore();
   const cname = document.getElementById('cname');
-  const email = document.getElementById('cemail');
+  const email = document.getElementById('email');
   const oname = document.getElementById('oname');
   const cfield = document.getElementById('cfield');
   const investment = document.getElementById('investment');
