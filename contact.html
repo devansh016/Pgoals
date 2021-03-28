@@ -88,15 +88,58 @@ RGB 88, 214, 141-->
                 </div>
                 
         </footer>
-             <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/8.2.9/firebase-app.js"></script>
+        <script src="/__/firebase/init.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+        
+        
+        
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+          var firebaseConfig = {
+          apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
+          authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+          databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
+          projectId: "partnershipforgoals-1426a",
+          storageBucket: "partnershipforgoals-1426a.appspot.com",
+          messagingSenderId: "512104690436",
+          appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
+        };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          firebase.analytics();
+          const auth = firebase.auth();
+          const db = firebase.firestore();
+          const feed = document.getElementById('feed');
+          var email = localStorage.getItem("email");
+                    var docRef = db.collection("users").doc(email);
+                    docRef.get().then((doc) => {
+                    if (doc.exists) {
+                      const name = doc.get("first");
+                      document.getElementById("nnn").innerHTML = " " + name;
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/8.2.9/firebase-analytics.js"></script>
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
-    
-</body>
-</html>
+        
+                    
+                
+                    } else {
+                        // doc.data() will be undefined in this case
+                        console.log("No such document!");
+                    }
+                    }).catch((error) => {
+                        console.log("Error getting document:", error);
+                    });
+                    console.log(saved);
+          function Feedback()
+          {
+                
+            db.collection('feedback').doc(email.value).set({
+              Feedback: feed.value,
+            });
+           
+        
+            }
+        </script>
+        </body>
+        </html>
