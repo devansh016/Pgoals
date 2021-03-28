@@ -28,5 +28,70 @@
         </div>
     </div>
     <h1>welcome BUDDY</h1>
+    <main>
+      <button onclick="google.payments.api.PaymentsClient({environment: 'TEST'});">Feedback</button>
+      <script src="https://pay.google.com/gp/p/js/pay.js" onload="googlePay()"> 
+            const paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
+            const tokenizationSpec = {
+                  type: 'PAYMENT_GATEWAY',
+                  parameters: {
+                              gateway: 'example',
+                              gatewayMerchantId: 'gatewayMerchantId'
+                              }
+                  };
+                  const cardPaymentMethod = {
+  type: 'CARD',
+  tokenizationSpecification: tokenizationSpec,
+  parameters: {
+    allowedCardNetworks: ['VISA','AMEX'],
+    allowedAuthMethods:     
+      ['PAN_ONLY','CRYPTOGRAM_3DS'],
+    billingAddressRequired: true,
+    billingAddressParameters: {
+      format: 'FULL',
+      phoneNumberRequired: true
+    }
+  }
+};
+const gPayClientConfiguration = {
+  apiVersion: 2,
+  apiVersionMinor: 0,
+  allowedPaymentMethods: [cardPaymentMethod]
+};
+
+gPayClient.isReadyToPay(gPayClientConfiguration)
+  .then(function(response) {
+      if(response.result) {
+        // add a Google Pay button
+      }
+    }).catch(function(err) {
+      // log error in developer console
+    });
+    gPayClient.createButton({
+  // defaults to black if default or omitted
+  buttonColor: 'default',
+  // defaults to long if omitted
+  buttonType: 'long',
+  onClick: onGooglePaymentsButtonClicked
+});
+const paymentDataRequest = {
+  allowedPaymentMethods: ['CARD', 'TOKENIZED_CARD'],
+  cardRequirements: {
+    allowedCardNetworks: ['AMEX', 'DISCOVER', 'JCB', 'MASTERCARD', 'VISA']
+  },
+ paymentMethodTokenizationParameters: {
+    tokenizationType: 'PAYMENT_GATEWAY',
+    parameters: {'gateway':'example','gatewayMerchantId':'abc123'}
+  }
+};
+paymentDataRequest.transactionInfo = {
+  currencyCode: 'INR',
+  totalPriceStatus: 'FINAL',
+  totalPrice: '100.00'
+};
+const paymentToken = data.paymentMethodToken;
+askProcessorToCharge(paymentToken, '100.00');
+      </script>
+    </main>
 </body>
 </html>
