@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Host | Pgoals</title>
+    <title>List your Company | Pgoals</title>
      <link rel="stylesheet" href="sigstyle.css">
      <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
 </head>
@@ -28,27 +28,21 @@
         </div>
         </div>
     </div>
+     <br> <br>  <br>  <br>  <br>  <br>   
     <main>
         <form action="">
             <ul class="form">
-               <li><h2>Business</h2></li>
+               <li><h2>List your Company</h2></li>
                <hr>
                <br>
-               <li><p>Company Name&emsp;&emsp;<input type="text" id="cname"  name="cname" placeholder="Enter Comapny Name  Here" ></p></li>
-               <li><p>Owner Name&emsp;&emsp;<input type="text" id="oname"  name="oname"  placeholder="Enter Owner Name Here" ></p></li> 
-               <li><p>Company Email&emsp;&emsp;&emsp;&emsp;<input type="email" id="cemail" name="cemail" placeholder="Company Email Addres Here"></p></li>
-               <li><p>Company Field<input type="text" id="cfield" name="cfield" placeholder="Company Field Here" ></p></li>
-               <li><p>Tell about your Company Plans
-                     </p>
-                      <textarea name="about" id="about" cols="30" rows="10">Tell about your Company Plans</textarea>
-                    </p>
-                  </li>    
-                  <li><p>Investment Required<input type="text" id="invest" name="invest" placeholder="Investment Required" ></p></li>
-                  <div class="term"><p><input type="checkbox" name="term" id="term" required>>&nbsp;You agree with our term and condition Lorem ipsum dolor sit amet consectetur adipisicing elit. D
-                        ucimus cum soluta quas placeat suscipit voluptas minima co sequuntur unde autem laboriosam nemo possimus quos quidem, similique repellendus,
-                         corporis perferendis eligendi expedita?</p></div>
+               <li><p>Company Name&emsp;&emsp;<input type="text" id="cname"  name="cname" placeholder="Enter your name here" ></p></li>
+               <li><p>Owner Name&emsp;&emsp;<input type="text" id="oname"  name="oname" placeholder="Enter your name here" ></p></li>
+               <li><p>Email&emsp;&emsp;<input type="email" id="cemail"  name="cemail"  placeholder="Enter your email address here" ></p></li>
+               <li><p>Company Field&emsp;&emsp;&emsp;<input type="text" id="cfield" name="cfield" placeholder="Enter skill you want to learn here"></p></li>   
+               <li><p>Investment Required<input type="text" id="investment" name="investment" placeholder="Enter your experinece here"></p></li>
+               <li><p>Company Plans&emsp;<input type="text" id="plan" name="plan" placeholder="Enter charges per hour here"></p></li>
                      <br>
-                      <div class="submit"> <button onclick="RegisterUser()" id="submit">Registration New User</button></div>
+                      <div class="submit"> <button onclick="Register()" id="submit">Submit</button></div>
                              </p>
               </li>
             </ul>
@@ -71,82 +65,52 @@
                 <a href="#"><i class="fab fa-github fa-2x"></i></a>
             </div>
     </footer>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/8.3.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/8.3.0/firebase-analytics.js"></script>
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
 
 
-<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script> 
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries 
-    
-       document.getElementById('submit').oneClick = fuction(){
-        RegisterUser();
-        firebase.database().ref('Users/'+id).set({
-     FirstName:fname,
-     LastName:lname,
-     Phonenumber:pnum,
-     Gender:gender,
-     DOB:dob,
-    
-    });
-
-    }
-
-
--->
- <!--
-    function RegisterUser() {
-   var email=document.getElementById('email').value;
-   var password=document.getElementById('password').value;
-   
-   var fname=document.getElementById('fname').value;
-   var lname=document.getElementById('lname').value;
-   var pnum=document.getElementById('pnum').value;
-   var gender=document.getElementById('gender').value;
-   var dob=document.getElementById('dob').value;
-  }
-  -->  
-<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 <script>
     // Your web app's Firebase configuration
-    var firebaseConfig = {
-    apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
-    authDomain: "partnershipforgoals-1426a.firebaseapp.com",
-    projectId: "partnershipforgoals-1426a",
-    storageBucket: "partnershipforgoals-1426a.appspot.com",
-    messagingSenderId: "512104690436",
-    appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
-  };
+  var firebaseConfig = {
+  apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
+  authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+  databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
+  projectId: "partnershipforgoals-1426a",
+  storageBucket: "partnershipforgoals-1426a.appspot.com",
+  messagingSenderId: "512104690436",
+  appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
+};
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-  function RegisterUser()
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const cname = document.getElementById('cname');
+  const email = document.getElementById('cemail');
+  const oname = document.getElementById('oname');
+  const cfield = document.getElementById('cfield');
+  const investment = document.getElementById('investment');
+  const plan = document.getElementById('plan');
+ 
+  function Register()
   {
-      var email = document.getElementById('email').value;
-      var password = document.getElementById('password').value;
-      firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
-          alert('User Registered Successfully');
-      }).catch(function(error){
-        var errorcode=error.code;
-        var errormsd=error.message;
-      })
-  }
-  
+        
+    db.collection('business').doc(email.value).set({
 
- 
- 
+      CompnayName: cname.value,
+      OwnerName: oname.value,
+      Investment: investment.value,
+      CompanyPlans: plan.value,
+      CompanyField: cfield.value,
 
-    </script>
-    
+    });
+    alert("Company Submited!");
+
+    }
+</script>
 </body>
 </html>
