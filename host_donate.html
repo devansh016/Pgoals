@@ -1,12 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate | Pgoals</title>
-    <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
+    <title>Document</title>
     <link rel="stylesheet" href="landing.css">
     <link rel="stylesheet" href="feedback.css">
 </head>
@@ -31,76 +29,9 @@
         </div>
         </div>
     </div>
-     <br> <br> <br> 
-<main>
-    
-    <ul>
-        <li>
-           <div class="item">
-            <h3>Teach A Skill</h3>
-            <p>Want to Teach A skill <br>
-                apply here</p>
-            <A href="skill.html"><button>Teach Skills</button></A>
-           </div>
-        </li>
-        <li>
-            <div class="item">
-                <h3>Learn A Skill</h3>
-            <p>Learn new skills here.
-            </p>
-            <A href="display.html"><button>Learn Skills</button></A>
-            </div>
-        </li>
-        <li>
-            <div class="item">
-                <img src="Images/partnership.jpg" width="600" height="360" align="right">
-            </div>
-         </li>
-    </ul>       
-</main> 
-<script src="/__/firebase/init.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-
-
-
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
-<script>
-    // Your web app's Firebase configuration
-  var firebaseConfig = {
-  apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
-  authDomain: "partnershipforgoals-1426a.firebaseapp.com",
-  databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
-  projectId: "partnershipforgoals-1426a",
-  storageBucket: "partnershipforgoals-1426a.appspot.com",
-  messagingSenderId: "512104690436",
-  appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
-};
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-  var email = localStorage.getItem("email");
-            var docRef = db.collection("users").doc(email);
-            docRef.get().then((doc) => {
-            if (doc.exists) {
-              const name = doc.get("first");
-              document.getElementById("nnn").innerHTML = " " + name;
-              document.getElementById("login").style.display = "none";
-              document.getElementById("ico").style.display = "block";
-
-            
-        
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
-            }).catch((error) => {
-                console.log("Error getting document:", error);
-            });
-            console.log(saved);
-  </script>
+    <br>    <br>    <br>    <br>    <br>    <br>    <br>
+    <main>
+      <img src="Images/payment.jpeg">
+    </main>
 </body>
 </html>
