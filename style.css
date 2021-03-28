@@ -60,6 +60,7 @@ hr
 /* Display some links to the right */
 #navbar-right {
   float: right;
+  display: flex;
 }
 
 /* Add responsiveness - on screens less than 580px wide, display the navbar vertically instead of horizontally */
