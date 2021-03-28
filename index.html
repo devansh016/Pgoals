@@ -19,7 +19,8 @@ RGB 88, 214, 141-->
         <a  class="active" href="index.html">Home</a>
         <a href="feedback.html">Feedback</a>
         <a href="contact.html">Contact Us</a>
-        <a href="welcome.html">Login/SignUp</a>
+        <a href="login.html">Login</a>
+        <a href="account.html"><i class="fas fa-user-alt fa-.5x"></i><strong id="nnn"></strong></a>
         </div>
         <script>window.onscroll = function() {scrollFunction()};
 
@@ -37,51 +38,61 @@ RGB 88, 214, 141-->
 
     
      <main>
-       <br>
-       <br><br><br><br><br><br><br><br><br><br><br><br>
-       <h2><u style="text-decoration-color: crimson;">About Us</u></h2>
-       
-       <p>
-        PGoals is a partner or volunteer finding platform, helping people to connect with other people around the world. 
-        PGoals helps its user to start a business, do volunteer work, learn new skills and connect with like mind people. Our platform also help NGO to raise funds, raise social issue and spreading awarness for their campaign.
-       </p>
-         <h2><u style="text-decoration-color:crimson;">Our Fields</u></h2>
-         
-         <div class="all">
-            <div class="card">
-                <div class="card-image-business"></div>
+      <br>
+      <br><br><br><br><br><br><br><br><br><br><br><br>
+      <h2><u style="text-decoration-color: crimson;">About Us</u></h2>
+      
+      <p>
+       PGoals is a partner or volunteer finding platform, helping people to connect with other people around the world. 
+       PGoals helps its user to start a business, do volunteer work, learn new skills and connect with like mind people. Our platform also help NGO to raise funds, raise social issue and spreading awarness for their campaign.
+      </p>
+        <h2><u style="text-decoration-color:crimson;">Our Fields</u></h2>
+        
+        <div class="all">
+           
+          <div class="sab", id ="sab"><div class="card">
+            <div class="card-image-business"></div>
+            <div class="card-text">
+              <a href="host_business.html"><h2>Start a Business</h2></a>
+              <p>Start your business idea today and get partners for your business.</p>
+            </div>
+            </div>
+          </div>
+            
+            <div class="don", id="don">
+              <div class="card">
+                <div class="card-image-donate"></div>
                 <div class="card-text">
-                  <a href="host_business.html"><h2>Start a Business</h2></a>
-                  <p>Start your business idea today and get partners for your business.</p>
+                  <a href="host_donate.html"><h2>Donate</h2></a>
+                  <p>Help the world by promising to donate a small amount every month.</p>
                 </div>
                 </div>
-             
-                <div class="card">
-                  <div class="card-image-donate"></div>
-                  <div class="card-text">
-                    <a href="host_donate.html"><h2>Donate</h2></a>
-                    <p>Help the world by promising to donate a small amount every month.</p>
-                  </div>
-                  </div>
-            	<div class="card">
+            </div>  
+
+             <div class="skill", id="skill">
+              <div class="card">
                 <div class="card-image-skill"></div>
                 <div class="card-text">
                   <a href="host_skill.html"><h2>Learn a skill</h2></a>
                   <p>Learn a new skill from experts in their virtual master class for free. Be ready for the technology advancement.</p>
                 </div>
                 </div>
-                
-         </div>    
-         <div class="bll">
+             </div>
+               
+        </div>    
+        <div class="bll">
+
+          <div class="job", id="job">
             <div class="card">
-                <div class="card-image-job"></div>
-                <div class="card-text">
-                  <a href="host_job.html"><h2>Find a Job</h2></a>
-                  <p>Looking for a job? Apply for hundreds of jobs on our portal by simply uploading your resume and providing some details.</p>
-                </div>
-                </div>
-         </div>        
-        </main>
+              <div class="card-image-job"></div>
+              <div class="card-text">
+                <a href="host_job.html"><h2>Find a Job</h2></a>
+                <p>Looking for a job? Apply for hundreds of jobs on our portal by simply uploading your resume and providing some details.</p>
+              </div>
+              </div>
+          </div>
+        </div>        
+       </main>
         <hr>
         <footer class="footer">    
             <h2>Social Account</h2>
@@ -100,15 +111,74 @@ RGB 88, 214, 141-->
                 </div>
                 
         </footer>
-             <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/8.2.9/firebase-app.js"></script>
+        <script src="/__/firebase/init.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+        
+        
+      
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+          var firebaseConfig = {
+          apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
+          authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+          databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
+          projectId: "partnershipforgoals-1426a",
+          storageBucket: "partnershipforgoals-1426a.appspot.com",
+          messagingSenderId: "512104690436",
+          appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
+        };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          firebase.analytics();
+          
+        </script>
+        <script type = "text/javascript">
+            const db = firebase.firestore();
+            var email = localStorage.getItem("email");
+            var docRef = db.collection("users").doc(email);
+            docRef.get().then((doc) => {
+            if (doc.exists) {
+                const name = doc.get("first");
+                document.getElementById("nnn").innerHTML = " " + name;
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/8.2.9/firebase-analytics.js"></script>
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
+                const sab = doc.get("SAB");
+                const skill = doc.get("SKILL");
+                const don = doc.get("DONATE");
+                const job = doc.get("JOB");
+                console.log(sab);
+                console.log(skill);
+                console.log(don);
+                console.log(job);
+                if(sab === "false")
+                {
+                  document.getElementById("sab").style.display = "none";
+                }
+                if(skill === "false")
+                {
+                  document.getElementById("skill").style.display = "none";
+                }
+                if(don === "false")
+                {
+                  document.getElementById("don").style.display = "none";
+                }
+                if(job === "false")
+                {
+                  document.getElementById("job").style.display = "none";
+                }
+                
+        
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+            console.log(saved);
+        </script>
     
 </body>
 </html>
