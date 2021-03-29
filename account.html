@@ -41,13 +41,13 @@
             Name:  <strong id="name"></strong>
         </p>  
         <p>
+           Gender:  <strong id="gender"></strong>
+        </p> 
+        <p>
           Registered Email:  <strong id="email"></strong>
       </p> 
       <p>
           Phone Number:  <strong id="phone"></strong>
-      </p>  
-      <p>
-          Interested in :  <strong id="field"></strong>
       </p> 
       <button onclick="logout()">Logout</button>    
     
@@ -114,9 +114,13 @@
         const name = doc.get("first");
         const lname = doc.get("last");
         const phone = doc.get("phone");
+        const gender = doc.get("gender");
         document.getElementById("name").innerHTML = " " + name + " " + lname;
+        document.getElementById("nnn").innerHTML = " " + name;
         document.getElementById("email").innerHTML = " " + email;
         document.getElementById("phone").innerHTML = " " + phone;
+        document.getElementById("gender").innerHTML = " " + gender;
+        document.getElementById("login").style.display = "none";
 
     } else {
         // doc.data() will be undefined in this case
