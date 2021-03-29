@@ -16,7 +16,6 @@ header {
     background-color: rgb(5, 70, 50);
 }
 .card {
-   display: flex;
     display:grid;
     grid-template-rows: 10px 150px 120px;
     grid-template-areas: "text" ;
@@ -27,7 +26,7 @@ header {
     font-family: roboto;
     text-align: center;
     max-width: 45%;
-    margin:0px 0px 129px 400px;
+    margin:0px 0px 118px 400px;
   }
   
   .card-text {
@@ -80,7 +79,7 @@ footer{
 ul{
     display: flex;
     list-style-type: none;
-    padding-left: 160px;
+    padding-left: 25px;
 }
 li{
     padding-left: 45px;
@@ -148,4 +147,9 @@ li{
 button {
   border-radius: 10px;
   font-size: 16px;
+}
+.pass{
+  align-self: center;
+  text-align: center;
+  padding-left: 143px;
 }
