@@ -37,7 +37,7 @@
                <br>
                <li><p>Company Name&emsp;&emsp;<input type="text" id="cname"  name="cname" placeholder="Enter your name here" ></p></li>
                <li><p>Owner Name&emsp;&emsp;&emsp;<input type="text" id="oname"  name="oname" placeholder="Enter your name here" ></p></li>
-               <li><p>Company Email&emsp;&emsp;<input type="email" id="email"  name="email"  placeholder="Enter your email address here" ></p></li>
+               <li><p>Company Email&emsp;&emsp;<input type="email" id="mail"  name="mail"  placeholder="Enter your email address here" ></p></li>
                <li><p>Company Field&emsp;&emsp;<input type="text" id="cfield" name="cfield" placeholder="Enter skill you want to learn here"></p></li>   
                <li><p>Investment Required<input type="text" id="investment" name="investment" placeholder="Enter your experinece here"></p></li>
                <li><p>Company Plans&emsp;&emsp;<input type="text" id="plan" name="plan" placeholder="Enter charges per hour here"></p></li>
@@ -90,12 +90,36 @@
   const auth = firebase.auth();
   const db = firebase.firestore();
   const cname = document.getElementById('cname');
-  const email = document.getElementById('email');
   const oname = document.getElementById('oname');
   const cfield = document.getElementById('cfield');
   const investment = document.getElementById('investment');
   const plan = document.getElementById('plan');
- 
+  var email = localStorage.getItem("email");
+  if(email==null){
+    document.getElementById("ico").style.display = "none";
+            }else{
+            var docRef = db.collection("users").doc(email);
+            docRef.get().then((doc) => {
+            if (doc.exists) {
+              const first = doc.get("first");
+              const last = doc.get("last");
+              document.getElementById("nnn").innerHTML = " " + first;
+              document.getElementById("mail").value = " " + email;
+              document.getElementById("oname").value = " " + first + " " + last;
+              document.getElementById("login").style.display = "none";
+              document.getElementById("ico").style.display = "block";
+
+            
+        
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+                
+            }
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+          }
   function Register()
   {
         
