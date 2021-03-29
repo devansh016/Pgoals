@@ -36,11 +36,10 @@
                <hr>
                <br>
                <li><p>Name&emsp;&emsp;<input type="text" id="name"  name="name" placeholder="Enter your name here" ></p></li>
-               <li><p>Email&emsp;&emsp;<input type="email" id="email"  name="email"  placeholder="Enter your email address here" ></p></li>
+               <li><p>Email&emsp;&emsp;<input type="email" id="mail"  name="mail"  placeholder="Enter your email address here" ></p></li>
                <li><p>Skill&emsp;&emsp;&emsp;<input type="text" id="skill" name="skill" placeholder="Enter skill you want to learn here"></p></li>   
                <li><p>Experience<input type="text" id="exp" name="exp" placeholder="Enter your experinece here"></p></li>
                <li><p>Charges&emsp;<input type="text" id="charges" name="charges" placeholder="Enter charges per hour here"></p></li>
-                  <div class="term"><p><input type="checkbox" name="term" id="term" required>&nbsp;You agree with our term and condition.</p></div>
                      <br>
                       <div class="submit"> <button onclick="Register()" id="submit">Submit</button></div>
                              </p>
@@ -90,11 +89,33 @@
   const auth = firebase.auth();
   const db = firebase.firestore();
   const name = document.getElementById('name');
-  const email = document.getElementById('email');
   const skill = document.getElementById('skill');
   const exp = document.getElementById('exp');
   const charges = document.getElementById('charges');
- 
+  var email = localStorage.getItem("email");
+  if(email==null){
+    document.getElementById("ico").style.display = "none";
+            }else{
+            var docRef = db.collection("users").doc(email);
+            docRef.get().then((doc) => {
+            if (doc.exists) {
+              const name = doc.get("first");
+              document.getElementById("nnn").innerHTML = " " + name;
+              document.getElementById("mail").value = " " + email; 
+              document.getElementById("login").style.display = "none";
+              document.getElementById("ico").style.display = "block";
+
+            
+        
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+                
+            }
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+          }
   function Register()
   {
         
