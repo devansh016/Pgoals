@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate To A Campaign | Pgoals</title>
+<link rel="stylesheet" href="display.css">
+<script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
+<link rel="icon" href="icon_title.png" type="image/png" >
+</head>
+<body>
+    <div id="navbar">
+        <a href="index.html" id="logo"><img src="Logo/icon_title.png" style="width: 200px;"></a>
+        <div id="navbar-right">
+        <div>
+          <a  class="active" href="index.html">Home</a>
+        </div>
+        <div>
+          <a href="feedback.html">Feedback</a>
+        </div>
+        <div>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div id="login">
+          <a href="login.html">Login</a>
+        </div>
+        <div id="ico">
+          <a href="account.html"><i class="fas fa-user-alt fa-.5x"></i><strong id="nnn"></strong></a>
+        </div>
+        </div>
+    </div>
+    <br>    <br>    <br>    <br>    <br>    <br>    <br>
+
+    <main>
+
+    <div id="card">
+          
+     </div>
+   
+</main>
+    <footer class="footer">    
+       
+        <div class="main">
+            <div class="icons">
+                <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+            <div class="icons">
+                <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+            </div>
+            <div class="icons">
+                <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+            </div>
+            <div class="icons">
+                <a href="#"><i class="fab fa-github fa-2x"></i></a>
+            </div>
+            
+    </footer>   
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+  var firebaseConfig = {
+  apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
+  authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+  databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
+  projectId: "partnershipforgoals-1426a",
+  storageBucket: "partnershipforgoals-1426a.appspot.com",
+  messagingSenderId: "512104690436",
+  appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  db.collection("donate").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+      const charges = doc.get("Charges");
+      const experience = doc.get("Experience");
+      const name = doc.get("Name");
+      const skill = doc.get("Skill");
+      const mailid = doc.get("EmailID");
+      const p_mail = "mailto:" + mailid
+
+      var para1 = document.createElement("p");
+      var node1 = document.createTextNode(name);
+      var h = document.createElement("h2");
+      var para2 = document.createElement("p");
+      var node2 = document.createTextNode("Experience " + experience);
+      var para3 = document.createElement("p");
+      var node3 = document.createTextNode("Charges " + charges);
+      var para4 = document.createElement("p");
+      var node4 = document.createTextNode("Skill " + skill);
+      var paranc = document.createElement("p");
+      var a = document.createElement("a");
+      a.setAttribute('href',p_mail);
+      a.innerHTML = "Know MORE";
+      var para5 = document.createElement("p");
+      var node5 = document.createTextNode("KNOW MORE");
+      para1.appendChild(node1)
+      para2.appendChild(node2)
+      para3.appendChild(node3)
+      para4.appendChild(node4)
+      paranc.appendChild(a);
+      h.appendChild(para1);
+      var divv = document.createElement("div");
+      var element = document.createElement("div");
+      divv.appendChild(h);
+      divv.appendChild(para2);
+      divv.appendChild(para3);
+      divv.appendChild(para4);
+      divv.appendChild(paranc);
+      element.appendChild(divv);
+      var para6 = document.createElement("p");
+      
+      element.style.display = "flex";
+      element.style.maxWidth = "250px";
+      element.style.borderRadius = "18px";
+      element.style.background = "rgb(8, 49, 102)";
+      element.style.boxShadow = "5px 5px 15px rgba(0,0,0,0.9)";
+      element.style.fontFamily = "roboto";
+      element.style.cursor = "pointer";
+
+      divv.style.margin = "10px";
+      divv.style.color = "white";
+
+      h.style.marginTop = "0px";
+      h.style.fontSize = "24px";
+      h.style.textAlign = "center";
+
+
+      paranc.style.textAlign = "center";
+      var abcd = document.getElementById("card");
+      var space = document.createElement("p");
+      abcd.appendChild(element);
+      abcd.appendChild(space);
+
+    });
+});
+  
+</script>
+</body>
+</html>

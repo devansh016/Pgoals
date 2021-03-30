@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Donation Campaign | Pgoals</title>
+     <link rel="stylesheet" href="sigstyle.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="navbar">
+        <a href="index.html" id="logo"><img src="Logo/icon_title.png" style="width: 200px;"></a>
+        <div id="navbar-right">
+        <div>
+          <a  class="active" href="index.html">Home</a>
+        </div>
+        <div>
+          <a href="feedback.html">Feedback</a>
+        </div>
+        <div>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div id="login">
+          <a href="login.html">Login</a>
+        </div>
+        <div id="ico">
+          <a href="account.html"><i class="fas fa-user-alt fa-.5x"></i><strong id="nnn"></strong></a>
+        </div>
+        </div>
+    </div>
+     <br> <br>  <br>  <br>  <br>  <br>   
+    <main>
+      <form action="">
+            <ul class="form">
+               <li><h2>List A Donation Campaign</h2></li>
+               <hr>
+               <br>
+               <li><p>Camapign Name<input type="text" id="cname"  name="cname" placeholder="Enter Campaign Name" ></p></li>
+               <li><p>Location&emsp;&emsp;&emsp;&emsp;<input type="text" id="location"  name="location"  placeholder="Enter Campaign Location" ></p></li> 
+               <li><p>Email ID&emsp;&emsp;&emsp;&emsp;<input type="email" id="mail" name="mail" placeholder="Enter your email address here"></p></li>
+               <li><p>Description&emsp;&emsp;&emsp;<input type="text" id="desc" name="desc" placeholder="Enter Campaign Description Here"></p></li>
+               <li><p>UPI ID&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" id="upi" name="upi" placeholder="Enter UPI ID Details here."></p></li> 
+                     <br>
+                      <div class="submit"> <button onclick="Register()" id="submit">Submit</button></div>
+                             </p>
+              </li>
+            </ul>
+        </form>
+        <hr>
+    </main>
+    
+    <footer class="footer">    
+      <div class="main">
+          <div class="icons">
+              <a href="#"><i class="fa fa-instagram" style="font-size: 32px "></i></a>
+          </div>
+          <div class="icons">
+              <a href="#"><i class="fa fa-facebook" style="font-size: 32px "></i></a>
+          </div>
+          <div class="icons">
+              <a href="#"><i class="fa fa-twitter" style="font-size: 32px "></i></a>
+          </div>
+          <div class="icons">
+              <a href="#"><i class="fa fa-github" style="font-size: 32px "></i></a>
+          </div>                
+  </footer>
+    <script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+  var firebaseConfig = {
+  apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
+  authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+  databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
+  projectId: "partnershipforgoals-1426a",
+  storageBucket: "partnershipforgoals-1426a.appspot.com",
+  messagingSenderId: "512104690436",
+  appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const cname = document.getElementById('cname');
+  const loc = document.getElementById('location');
+  const desc = document.getElementById('desc');
+  const upi = document.getElementById('upi');
+  var email = localStorage.getItem("email");
+  if(email==null){
+    document.getElementById("ico").style.display = "none";
+            }else{
+            var docRef = db.collection("users").doc(email);
+            docRef.get().then((doc) => {
+            if (doc.exists) {
+              const first = doc.get("first");
+              document.getElementById("nnn").innerHTML = " " + first;
+              document.getElementById("mail").value = " " + email;
+              document.getElementById("login").style.display = "none";
+              document.getElementById("ico").style.display = "block";
+
+            
+        
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+                
+            }
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+          }
+  function Register()
+  {
+        
+    db.collection('donate').doc(mail.value).set({
+
+      CampaignName: cname.value,
+      Location: loc.value,
+      Description: desc.value,
+      Upi: upi.value,
+      EmailID: mail.value,
+
+    });
+    alert("Data Submited!");
+    location.replace("https://pgoals.web.app/display_donate.html");
+
+    }
+</script>
+</body>
+</html>
