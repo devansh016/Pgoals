@@ -21,9 +21,6 @@
         <div>
           <a href="contact.html">Contact Us</a>
         </div>
-        <div id="login">
-          <a href="login.html">Login</a>
-        </div>
         <div id="ico">
           <a href="account.html"><i class="fa fa-user"></i><strong id="nnn"></strong></a>
         </div>
@@ -33,9 +30,11 @@
 
     <main>
 
-    <div id="card">
+<div class="all">
+  <div id="card">
           
-     </div>
+  </div>
+</div>
    
 </main>
     <footer class="footer">    
@@ -131,6 +130,8 @@
       element.style.fontFamily = "roboto";
       element.style.cursor = "pointer";
 
+      //element.style.padding = "10px";
+
       divv.style.margin = "10px";
       divv.style.color = "white";
 
@@ -157,7 +158,6 @@ var email = localStorage.getItem("email");
               const name = doc.get("first");
               document.getElementById("nnn").innerHTML = " " + name;
               document.getElementById("mail").value = " " + email; 
-              document.getElementById("login").style.display = "none";
               document.getElementById("ico").style.display = "block";
 
             

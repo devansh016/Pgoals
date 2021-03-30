@@ -75,13 +75,8 @@ section:nth-child(even) {
   }
   .all{
       display: flex;
+      padding: 10px;
   }
-  .bll{
-    display: flex;
-}
-.cll{
-  display: flex;
-}
 
 .main{
     width: 100%;
