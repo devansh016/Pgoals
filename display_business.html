@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learn A New Skill | Pgoals</title>
+<title>Invest in Business | Pgoals </title>
 <link rel="stylesheet" href="display.css">
 <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
 <link rel="icon" href="icon_title.png" type="image/png" >
@@ -79,21 +79,25 @@
   firebase.analytics();
   const auth = firebase.auth();
   const db = firebase.firestore();
-  db.collection("skill").get().then(function(querySnapshot) {
+  db.collection("business").get().then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
-      const charges = doc.get("Charges");
-      const experience = doc.get("Experience");
-      const name = doc.get("Name");
-      const skill = doc.get("Skill");
+      const cfield = doc.get("CompanyField");
+      const cplans = doc.get("CompanyPlans");
+      const cname = doc.get("CompnayName");
+      const investment = doc.get("Investment");
+      const name = doc.get("OwnerName");
+
       var para1 = document.createElement("p");
       var node1 = document.createTextNode(name);
       var h = document.createElement("h2");
       var para2 = document.createElement("p");
-      var node2 = document.createTextNode("Experience " + experience);
+      var node2 = document.createTextNode("Company Field : " + cfield);
       var para3 = document.createElement("p");
-      var node3 = document.createTextNode("Charges " + charges);
+      var node3 = document.createTextNode("Company Plans : " + cplans);
       var para4 = document.createElement("p");
-      var node4 = document.createTextNode("Skill " + skill);
+      var node4 = document.createTextNode("Compnay Name  :" + cname);
+      var para6 = document.createElement("p");
+      var node6 = document.createTextNode("Investment Req:" + investment);
       var paranc = document.createElement("p");
       var a = document.createElement("a");
       a.setAttribute('href',"#");
@@ -104,6 +108,7 @@
       para2.appendChild(node2)
       para3.appendChild(node3)
       para4.appendChild(node4)
+      para6.appendChild(node6)
       paranc.appendChild(a);
       h.appendChild(para1);
       var divv = document.createElement("div");
@@ -112,6 +117,7 @@
       divv.appendChild(para2);
       divv.appendChild(para3);
       divv.appendChild(para4);
+      divv.appendChild(para6);
       divv.appendChild(paranc);
       element.appendChild(divv);
       var para6 = document.createElement("p");

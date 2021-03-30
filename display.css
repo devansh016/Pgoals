@@ -32,7 +32,7 @@ section:nth-child(even) {
     background-color: rgb(241, 241, 241);
 }
 .card {
-    display:grid;
+    display: flex;
     grid-template-columns: 350px;
     grid-template-rows: 100px 100px 80px;
     max-width:400px;
@@ -199,5 +199,4 @@ a{
   width: 100%;
   color: white;
   text-align: center;
-position: fixed;
 }
