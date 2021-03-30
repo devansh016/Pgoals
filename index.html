@@ -149,8 +149,8 @@ RGB 88, 214, 141-->
             const db = firebase.firestore();
             var email = localStorage.getItem("email");
             if(email==null){
-              alert("Login First!");
-              location.replace("https://pgoals.web.app/login.html");
+            //alert("Login First!");
+            //location.replace("https://pgoals.web.app/login.html");
             }else{
             var docRef = db.collection("users").doc(email);
             docRef.get().then((doc) => {

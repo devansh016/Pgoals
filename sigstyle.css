@@ -116,7 +116,6 @@ header {
   input[type=button]
   {
       position: absolute;
-      align-items: center;
       padding: 0px 0px;
       border-radius: 20px;
       text-align: center;
@@ -135,7 +134,7 @@ header {
   }
   .submit
   {
-      padding-left: 35%;
+
   }
   .term
   {

@@ -125,8 +125,10 @@ RGB 88, 214, 141-->
             console.log(saved);
   function Feedback()
   {
-        
-    db.collection('feedback').doc(mail.value).set({
+    var today = new Date();
+    var time = " " + email + " " + today.getSeconds();
+    db.collection('feedback').doc(time.value).set({
+      EmailID: mail.value,
       Feedback: feed.value,
     });
     alert("Feedback Submited!");
