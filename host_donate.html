@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Donation| Pgoals</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="landing.css">
     <link rel="stylesheet" href="feedback.css">
@@ -30,24 +31,93 @@
         </div>
         </div>
     </div>
-    <br>    <br>    <br>    <br>    <br>    <br>    <br>
-    <main>
-      <img src="Images/payment.jpeg">
-    </main>
-    <footer class="footer">    
-      <div class="main">
-          <div class="icons">
-              <a href="#"><i class="fa fa-instagram" style="font-size: 32px "></i></a>
-          </div>
-          <div class="icons">
-              <a href="#"><i class="fa fa-facebook" style="font-size: 32px "></i></a>
-          </div>
-          <div class="icons">
-              <a href="#"><i class="fa fa-twitter" style="font-size: 32px "></i></a>
-          </div>
-          <div class="icons">
-              <a href="#"><i class="fa fa-github" style="font-size: 32px "></i></a>
-          </div>                
-  </footer>
+     <br> <br> <br> 
+<main>
+    
+    <ul>
+        <li>
+           <div class="item">
+            <h3>Start A Donation Campaign</h3>
+            <p>Enter a campaign detail and we <br>
+                will help you find donation. </p>
+            <A href="donate.html"><button>Start Campaign</button></A>
+           </div>
+        </li>
+        <li>
+            <div class="item">
+                <h3>Donate for a  Compaign</h3>
+            <p>Donate to a campaign for a good cause 
+                <br> or a camapign of your choice</p>
+            <A href="display_donate.html"><button>Support Campaign</button></A>
+            </div>
+        </li>
+        <li>
+            <div class="item">
+                <img src="Images/partnership.jpg" width="600" height="360" align="right">
+            </div>
+         </li>
+    </ul>       
+</main> 
+
+<footer class="footer">    
+  <div class="main">
+      <div class="icons">
+          <a href="#"><i class="fa fa-instagram" style="font-size: 32px "></i></a>
+      </div>
+      <div class="icons">
+          <a href="#"><i class="fa fa-facebook" style="font-size: 32px "></i></a>
+      </div>
+      <div class="icons">
+          <a href="#"><i class="fa fa-twitter" style="font-size: 32px "></i></a>
+      </div>
+      <div class="icons">
+          <a href="#"><i class="fa fa-github" style="font-size: 32px "></i></a>
+      </div>                
+</footer>
+
+<script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+  var firebaseConfig = {
+  apiKey: "AIzaSyDlNjj5_o3YBR_xYRVrnV43fKO0_Cpk1yo",
+  authDomain: "partnershipforgoals-1426a.firebaseapp.com",
+  databaseURL: "https://partnershipforgoals-1426a-default-rtdb.firebaseio.com",
+  projectId: "partnershipforgoals-1426a",
+  storageBucket: "partnershipforgoals-1426a.appspot.com",
+  messagingSenderId: "512104690436",
+  appId: "1:512104690436:web:be4b00ae9d7ab284b21651"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  var email = localStorage.getItem("email");
+            var docRef = db.collection("users").doc(email);
+            docRef.get().then((doc) => {
+            if (doc.exists) {
+              const name = doc.get("first");
+              document.getElementById("nnn").innerHTML = " " + name;
+              document.getElementById("login").style.display = "none";
+              document.getElementById("ico").style.display = "block";
+
+            
+        
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+            console.log(saved);
+  </script>
 </body>
 </html>

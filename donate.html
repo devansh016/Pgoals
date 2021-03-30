@@ -120,14 +120,13 @@
   {
         
     db.collection('donate').doc(mail.value).set({
-
       CampaignName: cname.value,
       Location: loc.value,
       Description: desc.value,
       Upi: upi.value,
       EmailID: mail.value,
-
     });
+    
     alert("Data Submited!");
     location.replace("https://pgoals.web.app/display_donate.html");
 
