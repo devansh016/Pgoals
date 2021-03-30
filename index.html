@@ -150,7 +150,7 @@ RGB 88, 214, 141-->
             var email = localStorage.getItem("email");
             if(email==null){
               alert("Login First!");
-              location.replace("https://devansh016.github.io/Pgoals/login.html");
+              location.replace("https://pgoals.web.app/login.html");
             }else{
             var docRef = db.collection("users").doc(email);
             docRef.get().then((doc) => {

@@ -128,7 +128,7 @@ RGB 88, 214, 141-->
   function Feedback()
   {
         
-    db.collection('feedback').doc(email.value).set({
+    db.collection('feedback').doc(mail.value).set({
       Feedback: feed.value,
     });
     alert("Feedback Submited!");
