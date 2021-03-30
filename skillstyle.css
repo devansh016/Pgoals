@@ -250,5 +250,9 @@ footer{
   color: white;
   text-align: center;
 }
-
+button{
+  font-size: 26px; 
+  padding: 5px; 
+  border-radius: 10px;
+}
   
