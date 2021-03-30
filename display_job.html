@@ -85,6 +85,9 @@
       const location = doc.get("Location");
       const qualificationrequired = doc.get("QualificationRequired");
       const salary = doc.get("Salaray");
+      const mailid = doc.get("EmailID");
+      const p_mail = "mailto:" + mailid
+      
       var para1 = document.createElement("p");
       var node1 = document.createTextNode(name);
       var h = document.createElement("h2");
@@ -98,7 +101,7 @@
       var node5 = document.createTextNode("Salary: " + salary);
       var paranc = document.createElement("p");
       var a = document.createElement("a");
-      a.setAttribute('href',"#");
+      a.setAttribute('href',p_mail);
       a.innerHTML = "Know MORE";
       var para6 = document.createElement("p");
       var node6 = document.createTextNode("KNOW MORE");

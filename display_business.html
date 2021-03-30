@@ -86,6 +86,8 @@
       const cname = doc.get("CompnayName");
       const investment = doc.get("Investment");
       const name = doc.get("OwnerName");
+      const mailid = doc.get("EmailID");
+      const p_mail = "mailto:" + mailid;
 
       var para1 = document.createElement("p");
       var node1 = document.createTextNode(name);
@@ -100,7 +102,7 @@
       var node6 = document.createTextNode("Investment Req:" + investment);
       var paranc = document.createElement("p");
       var a = document.createElement("a");
-      a.setAttribute('href',"#");
+      a.setAttribute('href',p_mail);
       a.innerHTML = "Know MORE";
       var para5 = document.createElement("p");
       var node5 = document.createTextNode("KNOW MORE");
