@@ -106,15 +106,12 @@ section:nth-child(even) {
 }
 
 .footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    
-    color: white;
-    text-align: center;
-   align-self: auto;
-    background-color: black;
+  background-color: black;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
 a{
   color: rgb(0, 0, 0);
